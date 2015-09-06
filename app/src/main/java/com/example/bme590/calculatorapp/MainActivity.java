@@ -70,15 +70,10 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     String string_sound = "";
 
     public void button_sound (View v){
-<<<<<<< HEAD
-=======
 
         Button button = (Button) v;
         string_sound = (String) button.getText().toString();
 
-
-
->>>>>>> origin/master
         final MediaPlayer mp = new MediaPlayer();
         // Noise effect every time button is pressed
         if(mp.isPlaying())
@@ -86,7 +81,10 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             mp.stop();
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
         try {
             mp.reset();
             AssetFileDescriptor afd;
