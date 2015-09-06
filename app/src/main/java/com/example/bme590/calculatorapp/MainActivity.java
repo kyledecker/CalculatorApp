@@ -1,5 +1,6 @@
 package com.example.bme590.calculatorapp;
 
+import android.content.DialogInterface;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     ToggleButton t;
     RelativeLayout r;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +31,11 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         t= (ToggleButton) findViewById(R.id.toggleButton2);
         r = (RelativeLayout) findViewById(R.id.layout);
         t.setOnCheckedChangeListener(this);
+<<<<<<< Updated upstream
+=======
+        r.setBackgroundColor(Color.rgb(0,0,156));
+        audio=true;
+>>>>>>> Stashed changes
 
 
     }
@@ -100,7 +107,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         TextView textView_commands = (TextView) findViewById(R.id.textView_commands);
 
         Button button = (Button) v;
-
 
         string = (String) button.getText().toString();
 
@@ -241,9 +247,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         textView_commands.setText("");
         arrayList.clear();
 
-
-
-
     }
 
 
@@ -269,6 +272,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         if(isChecked)
         {
             r.setBackgroundColor(Color.rgb(86, 160, 211));
+            //r.setcolo
+
 
         }
         else
