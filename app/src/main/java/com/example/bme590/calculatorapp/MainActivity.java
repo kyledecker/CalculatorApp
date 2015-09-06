@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         t= (ToggleButton) findViewById(R.id.toggleButton2);
         r = (RelativeLayout) findViewById(R.id.layout);
         t.setOnCheckedChangeListener(this);
+
+
     }
 
     @Override
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
 
     public void changestate (View v)
     {
