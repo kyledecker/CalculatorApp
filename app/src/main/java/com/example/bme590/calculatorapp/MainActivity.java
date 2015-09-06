@@ -221,6 +221,13 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
     }
 
+    public void speak(String text){
+
+        // Speak only if the TTS is ready
+        // and the user has allowed speech
+
+    }
+
     public void clear (View v){
         TextView textView_results = (TextView)findViewById(R.id.textView_results);
         TextView textView_commands = (TextView)findViewById(R.id.textView_commands);
