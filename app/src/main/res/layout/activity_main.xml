@@ -3,17 +3,19 @@
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:id="@+id/layout"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    >
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
         android:id="@+id/button1"
-        android:layout_below="@+id/button4"
-        android:layout_toStartOf="@+id/button5"
         android:background="@drawable/bg_button"
-        android:onClick="onClick1" />
+        android:onClick="onClick1"
+        android:layout_above="@+id/button0"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -40,10 +42,10 @@
         android:layout_height="wrap_content"
         android:text="4"
         android:id="@+id/button4"
-        android:layout_below="@+id/button7"
-        android:layout_alignStart="@+id/button1"
         android:background="@drawable/bg_button"
-        android:onClick="onClick1" />
+        android:onClick="onClick1"
+        android:layout_above="@+id/button1"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -70,10 +72,10 @@
         android:layout_height="wrap_content"
         android:text="7"
         android:id="@+id/button7"
-        android:layout_centerVertical="true"
-        android:layout_alignParentStart="true"
         android:background="@drawable/bg_button"
-        android:onClick="onClick1" />
+        android:onClick="onClick1"
+        android:layout_above="@+id/button4"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -141,10 +143,10 @@
         android:layout_height="wrap_content"
         android:text="0"
         android:id="@+id/button0"
-        android:layout_alignBottom="@+id/button_divide"
-        android:layout_alignParentStart="true"
         android:background="@drawable/bg_button"
-        android:onClick="onClick1" />
+        android:onClick="onClick1"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -172,11 +174,10 @@
         android:layout_height="40dp"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/textView_commands"
-        android:layout_alignEnd="@+id/button_plus"
-        android:layout_toEndOf="@+id/button_clear"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="0dp" />
+        android:layout_marginLeft="0dp"
+        android:layout_above="@+id/textView_results"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="51dp" />
 
     <TextView
         android:layout_width="fill_parent"
@@ -184,6 +185,31 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="0"
         android:id="@+id/textView_results"
-        android:layout_below="@+id/textView_commands"
+        android:layout_above="@+id/button_clear"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="41dp" />
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="Sound Off"
+        android:textOn="Sound On"
+        android:id="@+id/toggleButton"
+        android:onClick="changestate"
+        android:checked="false"
+        android:layout_above="@+id/textView_commands"
+        android:layout_alignParentEnd="true" />
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New ToggleButton"
+        android:textOff="Right blue"
+        android:textOn="Wrong blue"
+        android:id="@+id/toggleButton2"
+        android:checked="false"
+        android:layout_above="@+id/textView_commands"
         android:layout_alignParentStart="true" />
+
+
 </RelativeLayout>
