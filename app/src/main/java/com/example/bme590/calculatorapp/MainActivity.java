@@ -81,14 +81,11 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             mp.stop();
         }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
         try {
             mp.reset();
             AssetFileDescriptor afd;
-            if(!string.contains("clear")){
+            if(!string_sound.contains("clear")){
                 afd = getAssets().openFd("button_click.mp3");
             }
             else{
