@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         r = (RelativeLayout) findViewById(R.id.layout);
         t.setOnCheckedChangeListener(this);
         r.setBackgroundColor(Color.rgb(0,0,156));
-        audio=true;
 
 
     }
@@ -66,9 +65,12 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     ArrayList<String> arrayList = new ArrayList<String>();
     String string = "";
     String string1 = "";
+    String string_sound = "";
 
     public void button_sound (View v){
 
+        Button button = (Button) v;
+        string_sound = (String) button.getText().toString();
 
         final MediaPlayer mp = new MediaPlayer();
         // Noise effect every time button is pressed
@@ -77,10 +79,18 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             mp.stop();
         }
 
+
         try {
             mp.reset();
             AssetFileDescriptor afd;
-            afd = getAssets().openFd("button_click.mp3");
+            if(!string_sound.contains("clear")){
+                afd = getAssets().openFd("button_click.mp3");
+            }
+            else{
+                afd = getAssets().openFd("trash_sound.mp3");
+            }
+
+
             mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
             mp.prepare();
             mp.start();
