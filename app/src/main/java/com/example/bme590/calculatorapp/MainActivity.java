@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         t= (ToggleButton) findViewById(R.id.toggleButton2);
         r = (RelativeLayout) findViewById(R.id.layout);
         t.setOnCheckedChangeListener(this);
+
+
     }
 
     @Override
@@ -37,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
+
 
     public void changestate (View v)
     {
@@ -61,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     String string1 = "";
 
     public void button_sound (View v){
+
 
         final MediaPlayer mp = new MediaPlayer();
         // Noise effect every time button is pressed
