@@ -31,11 +31,8 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         t= (ToggleButton) findViewById(R.id.toggleButton2);
         r = (RelativeLayout) findViewById(R.id.layout);
         t.setOnCheckedChangeListener(this);
-<<<<<<< Updated upstream
-=======
         r.setBackgroundColor(Color.rgb(0,0,156));
         audio=true;
->>>>>>> Stashed changes
 
 
     }
