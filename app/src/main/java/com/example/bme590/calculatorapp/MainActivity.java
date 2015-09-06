@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             mp.stop();
         }
 
-        if
+
         try {
             mp.reset();
             AssetFileDescriptor afd;
