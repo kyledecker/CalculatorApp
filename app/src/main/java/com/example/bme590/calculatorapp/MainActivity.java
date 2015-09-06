@@ -68,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
         Button button = (Button) v;
 
+
         final MediaPlayer mp = new MediaPlayer();
         // Noise effect every time button is pressed
         if(mp.isPlaying())
