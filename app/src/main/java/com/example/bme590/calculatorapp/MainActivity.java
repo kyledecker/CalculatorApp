@@ -1,6 +1,7 @@
 package com.example.bme590.calculatorapp;
 
 import android.content.res.AssetFileDescriptor;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,17 +9,26 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import java.io.IOException;
 import java.util.ArrayList;
+import android.widget.ToggleButton;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
+
+    boolean audio = false;
+    ToggleButton t;
+    RelativeLayout r;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        t= (ToggleButton) findViewById(R.id.toggleButton2);
+        r = (RelativeLayout) findViewById(R.id.layout);
+        t.setOnCheckedChangeListener(this);
     }
 
     @Override
@@ -26,6 +36,25 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
+    }
+
+    public void changestate (View v)
+    {
+        ToggleButton toggleButton = (ToggleButton)findViewById(R.id.toggleButton);
+        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The toggle is enabled
+                    //System.out.println("Toggle On");
+                    audio = true; //audio is on
+                } else {
+                    // The toggle is disabled
+                    //System.out.println("Toggle Off");
+                    audio = false;
+                }
+            }
+        });
+
     }
 
 
@@ -241,5 +270,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+        if(isChecked)
+        {
+            r.setBackgroundColor(Color.rgb(86, 160, 211));
+
+        }
+        else
+        {
+            r.setBackgroundColor(Color.rgb(0,0,156));
+
+        }
     }
 }
