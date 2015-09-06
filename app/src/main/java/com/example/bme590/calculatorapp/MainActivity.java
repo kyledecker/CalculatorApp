@@ -45,11 +45,9 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
                     // The toggle is enabled
-                    //System.out.println("Toggle On");
                     audio = true; //audio is on
                 } else {
                     // The toggle is disabled
-                    //System.out.println("Toggle Off");
                     audio = false;
                 }
             }
