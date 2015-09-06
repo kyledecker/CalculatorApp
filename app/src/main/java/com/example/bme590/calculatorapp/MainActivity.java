@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         r = (RelativeLayout) findViewById(R.id.layout);
         t.setOnCheckedChangeListener(this);
         r.setBackgroundColor(Color.rgb(0,0,156));
-        audio=true;
 
 
     }
