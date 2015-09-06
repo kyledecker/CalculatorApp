@@ -1,5 +1,7 @@
 package com.example.bme590.calculatorapp;
 
+import android.content.res.AssetFileDescriptor;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -8,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +38,27 @@ public class MainActivity extends AppCompatActivity {
         TextView textView_commands = (TextView) findViewById(R.id.textView_commands);
 
         Button button = (Button) v;
+
+        final MediaPlayer mp = new MediaPlayer();
+        // Noise effect every time button is pressed
+        if(mp.isPlaying())
+        {
+            mp.stop();
+        }
+
+        try {
+            mp.reset();
+            AssetFileDescriptor afd;
+            afd = getAssets().openFd("button_click.mp3");
+            mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+            mp.prepare();
+            mp.start();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //
 
         string = (String) button.getText().toString();
 
@@ -68,6 +92,27 @@ public class MainActivity extends AppCompatActivity {
 
         int calc_result = 0;
         int calc_size = arrayList.size();
+
+        final MediaPlayer mp = new MediaPlayer();
+        // Noise effect every time button is pressed
+        if(mp.isPlaying())
+        {
+            mp.stop();
+        }
+
+        try {
+            mp.reset();
+            AssetFileDescriptor afd;
+            afd = getAssets().openFd("button_click.mp3");
+            mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+            mp.prepare();
+            mp.start();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //
 
         while (calc_size!=1){
             if (calc_size>3){
@@ -156,6 +201,27 @@ public class MainActivity extends AppCompatActivity {
         textView_results.setText("0");
         textView_commands.setText("");
         arrayList.clear();
+
+        final MediaPlayer mp = new MediaPlayer();
+        // Noise effect every time button is pressed
+        if(mp.isPlaying())
+        {
+            mp.stop();
+        }
+
+        try {
+            mp.reset();
+            AssetFileDescriptor afd;
+            afd = getAssets().openFd("button_click.mp3");
+            mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
+            mp.prepare();
+            mp.start();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //
 
 
     }
