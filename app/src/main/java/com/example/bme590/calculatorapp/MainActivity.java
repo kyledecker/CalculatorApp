@@ -62,11 +62,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     String string = "";
     String string1 = "";
 
-    public void onClick1 (View v){
-
-        TextView textView_commands = (TextView) findViewById(R.id.textView_commands);
-
-        Button button = (Button) v;
+    public void button_sound (View v){
 
         final MediaPlayer mp = new MediaPlayer();
         // Noise effect every time button is pressed
@@ -88,6 +84,19 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             e.printStackTrace();
         }
         //
+    }
+
+    public void onClick1 (View v){
+
+        // Make button noise if clicked and true
+        if(audio==true) {
+            button_sound(v);
+        }
+
+        TextView textView_commands = (TextView) findViewById(R.id.textView_commands);
+
+        Button button = (Button) v;
+
 
         string = (String) button.getText().toString();
 
@@ -119,29 +128,14 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
         TextView textView_results = (TextView)findViewById(R.id.textView_results);
 
+        // Make button noise if clicked and true
+        if(audio==true) {
+            button_sound(v);
+        }
+
         int calc_result = 0;
         int calc_size = arrayList.size();
 
-        final MediaPlayer mp = new MediaPlayer();
-        // Noise effect every time button is pressed
-        if(mp.isPlaying())
-        {
-            mp.stop();
-        }
-
-        try {
-            mp.reset();
-            AssetFileDescriptor afd;
-            afd = getAssets().openFd("button_click.mp3");
-            mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
-            mp.prepare();
-            mp.start();
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //
 
         while (calc_size!=1){
             if (calc_size>3){
@@ -232,32 +226,18 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         TextView textView_results = (TextView)findViewById(R.id.textView_results);
         TextView textView_commands = (TextView)findViewById(R.id.textView_commands);
 
+        // Make button noise if clicked and true
+        if(audio==true) {
+            button_sound(v);
+        }
+
         string1="";
         string="";
         textView_results.setText("0");
         textView_commands.setText("");
         arrayList.clear();
 
-        final MediaPlayer mp = new MediaPlayer();
-        // Noise effect every time button is pressed
-        if(mp.isPlaying())
-        {
-            mp.stop();
-        }
 
-        try {
-            mp.reset();
-            AssetFileDescriptor afd;
-            afd = getAssets().openFd("button_click.mp3");
-            mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
-            mp.prepare();
-            mp.start();
-        } catch (IllegalStateException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        //
 
 
     }
