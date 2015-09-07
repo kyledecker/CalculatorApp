@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.res.AssetFileDescriptor;
 import android.graphics.Color;
 import android.media.MediaPlayer;
+import android.speech.tts.TextToSpeech;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,6 +16,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Locale;
+
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
@@ -22,6 +26,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     boolean audio = false;
     ToggleButton t;
     RelativeLayout r;
+    TextToSpeech t1;
 
 
     @Override
@@ -31,7 +36,16 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         t= (ToggleButton) findViewById(R.id.toggleButton2);
         r = (RelativeLayout) findViewById(R.id.layout);
         t.setOnCheckedChangeListener(this);
-        r.setBackgroundColor(Color.rgb(0,0,156));
+        r.setBackgroundColor(Color.rgb(0, 0, 156));
+
+        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int status) {
+                if(status != TextToSpeech.ERROR) {
+                    t1.setLanguage(Locale.US);
+                }
+            }
+        });
 
 
     }
@@ -68,6 +82,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
     String string = "";
     String string1 = "";
     String string_sound = "";
+    String toSpeak1 = "";
 
     public void button_sound (View v){
 
@@ -139,16 +154,14 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 //        textView_commands.setText(arrayList.toString());
 
 
+        toSpeak1 = textView_commands.getText().toString();
     }
 
     public void onClick (View v) {
 
         TextView textView_results = (TextView)findViewById(R.id.textView_results);
+        String toSpeak = "";
 
-        // Make button noise if clicked and true
-        if(audio==true) {
-            button_sound(v);
-        }
 
         int calc_result = 0;
         int calc_size = arrayList.size();
@@ -230,14 +243,25 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
         textView_results.setText(Integer.toString(calc_result));
 
+        toSpeak = textView_results.getText().toString();
+
+        // Speak the result if sound is on
+        if(audio== true) {
+
+
+            toSpeak = toSpeak1 + "equals" + toSpeak;
+            toSpeak = toSpeak.replace("*","times");
+            toSpeak = toSpeak.replace("/","divided by");
+            toSpeak = toSpeak.replace("-","minus");
+
+            Toast.makeText(getApplicationContext(), toSpeak, Toast.LENGTH_SHORT).show();
+            t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
+        }
+
+
+
     }
 
-    public void speak(String text){
-
-        // Speak only if the TTS is ready
-        // and the user has allowed speech
-
-    }
 
     public void clear (View v){
         TextView textView_results = (TextView)findViewById(R.id.textView_results);
