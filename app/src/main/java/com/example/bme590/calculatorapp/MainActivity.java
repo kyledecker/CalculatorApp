@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         String toSpeak = "";
 
 
-        int calc_result = 0;
+        float calc_result = 0;
         int calc_size = arrayList.size();
 
 
@@ -171,42 +171,42 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                 if (arrayList.get(3).contains("*") || arrayList.get(3).contains("/")){
 
                     if (arrayList.get(3).contains("*")){
-                        calc_result = Integer.parseInt(arrayList.get(2))* Integer.parseInt(arrayList.get(4));
+                        calc_result = Float.parseFloat(arrayList.get(2))* Float.parseFloat(arrayList.get(4));
                     }
 
                     if (arrayList.get(3).contains("/")){
-                        calc_result = Integer.parseInt(arrayList.get(2))/ Integer.parseInt(arrayList.get(4));
+                        calc_result = Float.parseFloat(arrayList.get(2))/ Float.parseFloat(arrayList.get(4));
                     }
 
                     arrayList.remove(2);
                     arrayList.remove(2);
                     arrayList.remove(2);
-                    arrayList.add(2, Integer.toString(calc_result));
+                    arrayList.add(2, Float.toString(calc_result));
                     calc_size = arrayList.size();
                 }
 
                 else{
 
                     if (arrayList.get(1).contains("+")){
-                        calc_result = Integer.parseInt(arrayList.get(0))+ Integer.parseInt(arrayList.get(2));
+                        calc_result = Float.parseFloat(arrayList.get(0))+ Float.parseFloat(arrayList.get(2));
                     }
 
                     if (arrayList.get(1).contains("-")){
-                        calc_result = Integer.parseInt(arrayList.get(0))- Integer.parseInt(arrayList.get(2));
+                        calc_result = Float.parseFloat(arrayList.get(0))- Float.parseFloat(arrayList.get(2));
                     }
 
                     if (arrayList.get(1).contains("*")){
-                        calc_result = Integer.parseInt(arrayList.get(0))* Integer.parseInt(arrayList.get(2));
+                        calc_result = Float.parseFloat(arrayList.get(0))* Float.parseFloat(arrayList.get(2));
                     }
 
                     if (arrayList.get(1).contains("/")){
-                        calc_result = Integer.parseInt(arrayList.get(0))/ Integer.parseInt(arrayList.get(2));
+                        calc_result = Float.parseFloat(arrayList.get(0))/ Float.parseFloat(arrayList.get(2));
                     }
 
                     arrayList.remove(0);
                     arrayList.remove(0);
                     arrayList.remove(0);
-                    arrayList.add(0, Integer.toString(calc_result));
+                    arrayList.add(0, Float.toString(calc_result));
                     calc_size = arrayList.size();
 
                 }
@@ -215,31 +215,31 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
             else{
                 if (arrayList.get(1).contains("+")){
-                    calc_result = Integer.parseInt(arrayList.get(0))+ Integer.parseInt(arrayList.get(2));
+                    calc_result = Float.parseFloat(arrayList.get(0))+ Float.parseFloat(arrayList.get(2));
                 }
 
                 if (arrayList.get(1).contains("-")){
-                    calc_result = Integer.parseInt(arrayList.get(0))- Integer.parseInt(arrayList.get(2));
+                    calc_result = Float.parseFloat(arrayList.get(0))- Float.parseFloat(arrayList.get(2));
                 }
 
                 if (arrayList.get(1).contains("*")){
-                    calc_result = Integer.parseInt(arrayList.get(0))* Integer.parseInt(arrayList.get(2));
+                    calc_result = Float.parseFloat(arrayList.get(0))* Float.parseFloat(arrayList.get(2));
                 }
 
                 if (arrayList.get(1).contains("/")){
-                    calc_result = Integer.parseInt(arrayList.get(0))/ Integer.parseInt(arrayList.get(2));
+                    calc_result = Float.parseFloat(arrayList.get(0))/ Float.parseFloat(arrayList.get(2));
                 }
 
                 arrayList.remove(0);
                 arrayList.remove(0);
                 arrayList.remove(0);
-                arrayList.add(0, Integer.toString(calc_result));
+                arrayList.add(0, Float.toString(calc_result));
                 calc_size = arrayList.size();
             }
 
         }
 
-        textView_results.setText(Integer.toString(calc_result));
+        textView_results.setText(Float.toString(calc_result));
 
         toSpeak = textView_results.getText().toString();
 
