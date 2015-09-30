@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         t.setOnCheckedChangeListener(this);
         r.setBackgroundColor(Color.rgb(0, 0, 156));
 
+        // Initialize TextToSeech Method
         t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -118,8 +119,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             else{
                 afd = getAssets().openFd("trash_sound.mp3");
             }
-
-
             mp.setDataSource(afd.getFileDescriptor(),afd.getStartOffset(),afd.getLength());
             mp.prepare();
             mp.start();
@@ -182,6 +181,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         while (calc_size!=1){
             if (calc_size>3){
 
+                // If second operation is * or /, perform this first
                 if (arrayList.get(3).contains("*") || arrayList.get(3).contains("/")){
 
                     if (arrayList.get(3).contains("*")){
@@ -201,6 +201,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
                 else{
 
+                    // Else just perform first operation
                     if (arrayList.get(1).contains("+")){
                         calc_result = Float.parseFloat(arrayList.get(0))+ Float.parseFloat(arrayList.get(2));
                     }
@@ -227,6 +228,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
             }
 
+            // if array size is less then 3 there is only 1 operation to perform
             else{
                 if (arrayList.get(1).contains("+")){
                     calc_result = Float.parseFloat(arrayList.get(0))+ Float.parseFloat(arrayList.get(2));
@@ -261,10 +263,11 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         if(audio== true) {
 
 
-            toSpeak = toSpeak1 + "equals" + toSpeak;
-            toSpeak = toSpeak.replace("*","times");
-            toSpeak = toSpeak.replace("/","divided by");
-            toSpeak = toSpeak.replace("-","minus");
+            toSpeak = toSpeak1 + " equals " + toSpeak;
+            toSpeak = toSpeak.replace("+"," plus ");
+            toSpeak = toSpeak.replace("*"," times ");
+            toSpeak = toSpeak.replace("/"," divided by ");
+            toSpeak = toSpeak.replace("-"," minus ");
 
             Toast.makeText(getApplicationContext(), toSpeak, Toast.LENGTH_SHORT).show();
             t1.speak(toSpeak, TextToSpeech.QUEUE_FLUSH, null);
@@ -315,8 +318,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         if(isChecked)
         {
             r.setBackgroundColor(Color.rgb(86, 160, 211));
-            //r.setcolo
-
 
         }
         else
