@@ -21,6 +21,20 @@ import java.util.Locale;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
+import net.mitchtech.adb.simpledigitaloutput.R;
+import org.microbridge.server.Server;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.Window;
+import android.widget.Button;
+
+import java.io.IOException;
+
+
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
 
     boolean audio = false;
@@ -141,7 +155,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
         }
         else {
-
+// why is this here twice?
             arrayList.add(string);
             arrayList.add(string);
             string1="";
