@@ -171,13 +171,9 @@
         android:layout_alignStart="@+id/button2"
         android:layout_toStartOf="@+id/button_multiply"
         android:background="@drawable/bg_button"
-<<<<<<< HEAD
-        android:onClick="onClick"
-        android:layout_gravity="right" />
-=======
+        android:layout_gravity="right"
         android:gravity="center_horizontal"
-        android:onClick="onClick" />
->>>>>>> origin/master
+        android:onClick="onClick1" />
 
     <Button
         android:layout_width="wrap_content"

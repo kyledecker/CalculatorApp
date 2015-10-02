@@ -17,28 +17,23 @@ import android.widget.TextView;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Locale;
-
+import java.lang.Float;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-import net.mitchtech.adb.simpledigitaloutput.R;
-import org.microbridge.server.Server;
-
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.Window;
 import android.widget.Button;
+import android.widget.SeekBar;
 
-import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener{
 
     boolean audio = false;
     ToggleButton t;
+    boolean background = false;
     RelativeLayout r;
     TextToSpeech t1;
 
@@ -52,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         t.setOnCheckedChangeListener(this);
         r.setBackgroundColor(Color.rgb(0, 0, 156));
 
+
         // Initialize TextToSeech Method
         t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
@@ -61,8 +57,6 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
                 }
             }
         });
-
-
     }
 
     @Override
@@ -72,23 +66,25 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         return true;
     }
 
-
     public void changestate (View v)
     {
         ToggleButton toggleButton = (ToggleButton)findViewById(R.id.toggleButton);
         toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked) {
+
                     // The toggle is enabled
                     audio = true; //audio is on
                 } else {
                     // The toggle is disabled
                     audio = false;
                 }
+
             }
         });
 
     }
+
 
 
     ArrayList<String> arrayList = new ArrayList<String>();
@@ -143,6 +139,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
         string = (String) button.getText().toString();
 
+
         if(!string.contains("+") && !string.contains("-") && !string.contains("/") && !string.contains("*")) {
             string1 = string1+string;
 
@@ -154,7 +151,7 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
 
         }
         else {
-// why is this here twice?
+
             arrayList.add(string);
             arrayList.add(string);
             string1="";
@@ -325,5 +322,20 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             r.setBackgroundColor(Color.rgb(0,0,156));
 
         }
+        ToggleButton leftToggleButton = (ToggleButton)findViewById(R.id.toggleButton2);
+        leftToggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    // The toggle is enabled
+                    background = true; //background is on
+                } else {
+                    // The toggle is disabled
+                    background = false;
+                }
+            }
+        });
     }
+
+
 }
+
